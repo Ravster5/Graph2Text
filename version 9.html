@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  
+  <style>
+    .form-group {
+      margin-bottom: 30px;
+      width: 25%; 
+      margin: 0 auto 30px;
+    }
+    
+    .arrow {
+      font-size: 30px;
+    }
+    
+    .output-box {
+      width: 50%;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .arrow {
+  font-size: 30px;
+  text-align: center; 
+  }
+
+  .output-box {
+    text-align: center;
+  }
+
+  select.form-control {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+  }
+
+  .generate-button {
+    display: block;
+    margin: 0 auto;
+  }
+
+  h3 {
+    text-align: center;
+    margin-bottom: 10px; 
+  }
+
+  </style>
+
+</head>
+
+<body>
+
+<h3>Element 1</h3>
+
+<div class="form-group">
+  <select class="form-control" id="element1"></select>
+
+</div>
+
+<div class="arrow">&#8595;</div>
+
+<h3>Element 2</h3>
+
+
+<div class="form-group">
+  <select class="form-control" id="element2"></select>
+</div>
+
+<div class="arrow">&#8595;</div>
+
+<h3>Element 3</h3>
+
+<div class="form-group">
+  <select class="form-control" id="element3"></select>
+</div>
+
+<div class="arrow">&#8595;</div>
+
+<h3>Element 4</h3>
+
+
+<div class="form-group">
+  <select class="form-control" id="element4"></select>  
+</div>
+
+<div class="arrow">&#8595;</div>
+
+<h3>Element 5</h3>
+
+
+<div class="form-group">
+  <select class="form-control" id="element5"></select>
+</div>
+
+<div class="arrow">&#8595;</div>
+
+<div class="output-box">
+  <p id="sentence"></p>
+</div>
+
+<button class="btn btn-primary generate-button" onclick="generateSentence()">Generate Sentence</button> 
+
+<script>
+
+// Fetch names 
+function fetchNames() {
+  return fetch("https://namey.muffinlabs.com/name.json?count=50&gender=male")
+    .then(response => response.json());
+}
+
+// Create option element
+function createOption(name){
+  var option = document.createElement("option");
+  // set option text to name
+  option.text = name;
+  return option;
+}
+
+function addOptions(selectId, options){
+  var select = document.getElementById(selectId);
+  options.forEach(option => {
+    select.appendChild(option);
+  });
+
+// Populate dropdowns
+function populateDropdowns(names) {
+
+  // Create options
+  var options = names.map(name => {
+    return createOption(name.text);
+  });
+
+  // Add options 
+  addOptions("element1", options);
+  addOptions("element2", options);
+  addOptions("element3", options);
+  addOptions("element4", options);
+  addOptions("element5", options);
+}
+
+  
+
+}
+
+// DOMContentLoaded handler
+document.addEventListener('DOMContentLoaded', () => {
+  
+  fetchNames()
+    .then(data => {
+      populateDropdowns(data); 
+    });
+
+});
+
+// Click handler
+generateButton.addEventListener("click", () => {
+
+  // Get values
+  var value1 = getSelectValue("element1");
+  var value2 = getSelectValue("element2");
+  var value3 = getSelectValue("element3");
+  var value4 = getSelectValue("element4");
+  var value5 = getSelectValue("element5");
+
+  
+  // Generate sentence
+  var sentence = value1 + " " + value2 + " " + value3 + " " + value4 + " " + value5;
+
+  // Display sentence
+  document.getElementById("sentence").innerHTML = sentence;
+
+});
+
+</script>
+</body>
+</html>
