@@ -2,7 +2,6 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -15,7 +14,8 @@
 <h3>Element 1</h3>
 
 <div class="form-group">
-  <select class="form-control" id="element1">
+  <select class="select" id="element1">
+    <option value="">Select an option</option>
     <option>Lorem ipsum dolor sit amet</option>
     <option>Consectetur adipiscing elit</option>
   </select>
@@ -26,7 +26,8 @@
 <h3>Element 2</h3>
 
 <div class="form-group">
-  <select class="form-control" id="element2">
+  <select class="select" id="element2">
+    <option value="">Select an option</option>
     <option>Sed do eiusmod tempor incididunt</option>
     <option>Ut labore et dolore magna aliqua</option>
   </select>
@@ -34,24 +35,31 @@
 
 <div class="arrow">&#8595;</div>
 
-<h3>Element 3</h3>
+
 
 <div class="form-group">
-  <select class="form-control" id="element3">
+
+<h3>Element 3</h3>
+  <select class="select" id="element3-select">
+    <option value="">Select an option</option>
     <option>Ut enim ad minim veniam</option>
     <option>Quis nostrud exercitation ullamco</option>
   </select>
+  <input type="text" id="element3-input" class="form-control">
 </div>
 
 <div class="arrow">&#8595;</div>
 
-<h3>Element 4</h3>
+
 
 <div class="form-group">
-  <select class="form-control" id="element4">
+  <h3>Element 4</h3>
+  <select class="select" id="element4-select">
+    <option value="">Select an option</option>
     <option>Laboris nisi ut aliquip ex ea</option>
     <option>Commodo consequat duis aute irure</option>
   </select>
+  <input type="text" id='element4-input' class='form-control'>
 </div>
 
 <div class="arrow">&#8595;</div>
@@ -59,7 +67,8 @@
 <h3>Element 5</h3>
 
 <div class="form-group">
-  <select class="form-control" id="element5">
+  <select class="select" id="element5">
+    <option value="">Select an option</option>
     <option>Dolor in reprehenderit in voluptate</option>
     <option>Velit esse cillum dolore eu fugiat</option>
   </select>
@@ -71,7 +80,7 @@
   <p id="sentence"></p>
 </div>
 
-<div class="button-container">
+<div class="button">
 <button class="btn btn-primary generate-button" onclick="generateSentence()">Generate Sentence</button>
 </div>
 
